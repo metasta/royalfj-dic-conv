@@ -25,16 +25,16 @@ git clone https://github.com/metasta/royalfj-dic-conv.git
 
 `Dictionary Development Kit/bin` と同じ階層に `royalfj-dic-conv` フォルダを配置する。
 ```
-Dictionary Development Kit
-└── bin
-└── documents
-└── project_templates
-└── royalfj-dic-conv
+Dictionary Development Kit/
+└── bin/
+└── documents/
+└── project_templates/
+└── royalfj-dic-conv/
     └── Makefile
     └── RoyalFJ.plist
     └── RoyalFJ.css
-    └── scripts
-└── samples
+    └── scripts/
+└── samples/
 ```
 
 ### 3. Makefile の編集
