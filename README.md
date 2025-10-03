@@ -37,7 +37,7 @@ Dictionary Development Kit
 └── samples
 ```
 
-### 3. Makefile の設定
+### 3. Makefile の編集
 CD-ROMをマウントし、CD-ROMデータにアクセスできるパスを確認する。
 
 `Makefile` を開き、CD-ROMデータ内の `Royal` フォルダのパスを `ROYALFJ_ROYAL_DIR` に指定する。
