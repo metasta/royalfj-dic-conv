@@ -1,4 +1,4 @@
-# royal-frja-conv
+# royalfj-dic-conv
 macOSの 辞書.app で『ロワイヤル仏和中辞典』を使う
 
 ## 概要
@@ -20,16 +20,16 @@ https://developer.apple.com/download/all/?q=Xcode
 
 ### 2. ツールをダウンロードして配置
 ``` sh
-git clone https://github.com/metasta/royal-frja-conv.git
+git clone https://github.com/metasta/royalfj-dic-conv.git
 ```
 
-`Dictionary Development Kit/bin` と同じ階層に `royal-frja-conv` フォルダを配置する。
+`Dictionary Development Kit/bin` と同じ階層に `royalfj-dic-conv` フォルダを配置する。
 ```
 Dictionary Development Kit
 └── bin
 └── documents
 └── project_templates
-└── royal-frja-conv
+└── royalfj-dic-conv
     └── Makefile
     └── RoyalFJ.plist
     └── RoyalFJ.css
