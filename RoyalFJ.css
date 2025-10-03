@@ -1,0 +1,465 @@
+@charset "UTF-8";
+@namespace d url(http://www.apple.com/DTDs/DictionaryService-1.0.rng);
+
+
+/* ---------------
+  変数
+--------------- */
+
+:root {
+ --serif-font: serif;
+ --serif-bold: serif;
+ --sans-serif-font: sans-serif;
+ --sans-serif-bold: sans-serif;
+/*
+  --serif-font: YuMin-Medium,serif;
+  --serif-bold: YuMin-Bold,serif;
+  --sans-serif-font: YuGo-Medium,sans-serif;
+  --sans-serif-bold: YuGo-Bold,sans-serif;
+*/
+/*
+  --serif-font: 'Publico Text','ヒラギノ明朝 ProN',serif;
+  --serif-bold: 'Publico Text','ヒラギノ明朝 ProN',serif;
+  --sans-serif-font: 'Proxima Nova','ヒラギノ角ゴシック',sans-serif;
+  --sans-serif-bold: 'Proxima Nova','ヒラギノ角ゴシック',sans-serif;
+*/
+}
+
+/* ---------------
+  要素全般
+--------------- */
+
+body {
+  font-family: var(--serif-font),serif;
+  line-height: 1.8;
+  padding: 1em 0.5em;
+}
+table,tr,td {
+  margin: 0;
+  padding: 0;
+  border:none;
+}
+table,tr {
+  width:100%;
+}
+td {
+  display: inline-block;
+}
+hr {
+  visibility: hidden;
+}
+a[href] {
+  color: LinkText;
+  text-decoration: underline;
+  margin: 0 0.2em;
+}
+
+/* ---------------
+  見出し
+--------------- */
+
+/* 見出し語 */
+.midasi {
+  display: inline-block;
+  margin-bottom: 0.5em;
+  margin-right: 0.5em;
+  /* font-family: var(--sans-serif-bold),sans-serif; */
+  font-family: var(--serif-bold),serif;
+  font-weight: bold;
+  font-size: 150%;
+}
+/* 同一綴りで語源の異なる見出し語 */
+sup {
+  margin-left: 0.1em;
+  vertical-align: 40%;
+  font-size: 75%;
+  color: rgba(0,0,0,0.5);
+}
+/* 変化 (pl. aux) */
+ .henka {
+  margin: 0 0.15em;
+  /* font-family: var(--sans-serif-font),sans-serif; */
+  color: rgba(0,0,0,0.5);
+}
+/* 発音 */
+.hatuon {
+  margin: 0 0.3em;
+  color: rgba(0,0,0,0.5);
+}
+.midasi ~ .hatuon,
+.midasi_sub ~ .hatuon {
+  font-size: 120%;
+}
+/* 語源 (＜lat.) */
+.gogen {
+  margin: 0 0.15em;
+  /* font-family: var(--sans-serif-font),sans-serif; */
+  font-size: 90%;
+  color: rgba(0,0,0,0.5);
+}
+/* 発生 (←abdominal) */
+.hassei {
+  margin: 0 0.15em;
+  /* font-family: var(--sans-serif-font),sans-serif; */
+  font-size: 90%;
+  color: rgba(0,0,0,0.5);
+}
+/* 巻末の動詞活用表に対応する番号 */
+.dousi_num {
+  margin: 0 0.1em;
+  font-family: var(--serif-bold),serif;
+  font-weight: bold;
+  font-size: 90%;
+  color: brown;
+}
+/* 品詞 n.m. */
+ .hinsi {
+  margin: 0 0.15em;
+/*  font-family: var(--sans-serif-font),sans-serif; */
+/*  font-family: var(--serif-bold),serif; */
+/*  font-weight: bold; */
+  font-style: italic;
+  color: rgba(0,0,0,0.5);
+}
+/* 文中のサブ見出し -se manger */
+.midasi_sub {
+  display: inline-block;
+  /* font-family: var(--sans-serif-bold),sans-serif; */
+  font-family: var(--serif-bold),serif;
+  font-weight: bold;
+  font-size: 120%;
+  margin-bottom: 0.5em;
+  margin-right: 0.5em;
+}
+/* サブ見出しの前の——記号 */
+.dash {
+  margin-right: 0.15em;
+  /* font-family: var(--sans-serif-font),sans-serif; */
+  font-weight: normal;
+  font-size: 120%;
+  color: Brown;
+}
+
+/* ---------------
+  本文
+--------------- */
+
+/* 語義分類番号 */
+/* .branch2 上位区分 ABC */
+/* .branch3 通常区分 123 */
+/* .branch4 下位区分 a)b)c) */
+/* .branch5 成句の語義分類 123 */
+.branch2,.branch3,.branch4,.branch5{
+  display: inline-block;
+  margin: 0 0.4em;
+  font-family: var(--sans-serif-bold),sans-serif;
+  font-weight:bold;
+}
+.branch2,.branch3 {
+  width: 1.25em;
+  height: 1.25em;
+  line-height: 1.25em;
+  text-align: center;
+  color: white;
+  border-radius: 2px;
+}
+.branch4,.branch5{
+  margin-left: 1em;
+  font-size:110%;
+}
+.branch2 {
+  background-color: brown;
+}
+.branch3 {
+  background-color: rgba(0,0,0,0.5);
+}
+.branch4 {
+  color:Brown;
+}
+.branch5 {
+}
+/* 上位区分見出し 例：「起源・原因・手段・様態」*/
+.gentei1 {
+  font-family: var(--serif-bold),serif;
+  font-weight: bold;
+  color:Brown;
+}
+/* 訳語 印刷は丸ゴシック */
+.yakugo {
+  margin: 0 0.2em;
+}
+.midasi ~ .yakugo,
+.midasi_sub ~ .yakugo,
+.branch2 ~ .yakugo,
+.branch3 ~ .yakugo,
+.branch4 ~ .yakugo,
+.branch5 ~ .yakugo {
+  font-family: var(--serif-bold),serif;
+  font-weight: bold;
+}
+/* 用例 */
+td:has(> .yourei){
+  padding-left: 3em;
+  text-indent: -2em;
+}
+.yourei {
+  margin-right: 0.4em;
+  /* font-family: var(--serif-bold),serif; */
+  /* font-weight: bold; */
+  color: rgba(0,0,0,0.5);
+}
+.yourei_yaku {
+  margin: 0 0.15em;
+}
+/* 成句 */
+td:has(> .seiku){
+  padding-left: 3em;
+  text-indent: -2.6em;
+}
+.seiku {
+  margin-right: 0.4em;
+  /* font-family: var(--sans-serif-bold),sans-serif; */
+  font-family: var(--serif-bold),serif;
+  font-weight: bold;
+  font-size: 110%;
+}
+.seiku_yaku {
+  margin: 0 0.15em;
+}
+
+/* 派生語 記事末の「◇」 */
+.hasei {
+  /* font-family: var(--sans-serif-bold),sans-serif; */
+  font-family: var(--serif-bold),serif;
+  font-weight: bold;
+  margin-left: 0;
+  margin-top: 0.5em;
+  margin-right: 0.5em;
+  margin-bottom: 0;
+}
+
+/* ---------------
+  用語、引用、関連
+--------------- */
+
+/* 題名 */
+.daimei {
+  font-family: var(--serif-bold),serif;
+  font-weight: bold;
+  font-size: 110%;
+}
+/* 用語 */
+td:has(> .yougo){
+  padding-left: 3em;
+  text-indent: -2em;
+}
+.yougo {
+  margin-right: 0.4em;
+  /* font-family: var(--serif-bold),serif; */
+  /* font-weight: bold; */
+}
+.yougo_yaku {
+  margin: 0 0.15em;
+}
+/* 引用 */
+td:has(> .inyou){
+  padding-left: 3em;
+  text-indent: -2em;
+}
+.inyou {
+  margin-right: 0.4em;
+  /* font-family: var(--serif-bold),serif; */
+  /* font-weight: bold; */
+}
+.sakusya {
+  font-size: 90%;
+  margin: 0 0.8em;
+}
+td:has(> .inyou_yaku){
+  padding-left: 3em;
+}
+.inyou_yaku {
+  font-size: 90%;
+  margin: 0 0.15em;
+}
+/* 関連 */
+td:has(> .kanren){
+  padding-left: 3em;
+  text-indent: -2em;
+}
+ .kanren {
+  margin-right: 0.4em;
+  /* font-family: var(--serif-bold),serif; */
+  /* font-weight: bold; */
+}
+ .kanren_yaku {
+  font-size: 90%;
+  margin: 0 0.15em;
+}
+
+/* ---------------
+  括弧類
+--------------- */
+
+/* 補助 省略可能部分 (時計の)アンクル */
+.hojo {
+  font-size: 90%;
+  margin: 0 0.15em;
+}
+/* 同意語 双解語句 (＝petit doigt) */
+.doui {
+  margin: 0 0.3em;
+  font-family: var(--serif-bold),serif;
+  font-weight:bold;
+}
+/* 説明 ［中が空洞で指状のもの］ */
+.setumei {
+  margin: 0 0.15em;
+  font-size: 90%;
+}
+/* 注記 */
+/* span.tyuki : (＊〜〜) */
+/* td.tyuki : ブロック型,内部に span.kaigyo あり */
+.tyuki {
+  display: inline-block;
+  text-indent: 0;
+  font-size: 80%;
+  margin: 0.4em 0.4em;
+  color: rgba(0,0,0,0.5);
+}
+.kaigyo {
+}
+/* span.tyuki の＊ */
+.aster {
+  font-family: var(--sans-serif-bold),sans-serif;
+  font-weight: bold;
+  font-size: 80%;
+  color: Brown;
+}
+/* 構文説明など */
+/* .gentei2 限定 ((中性代名詞leとともに)) 印刷は｟｠ */
+/* .gokei   語形 ((pl.で)) ｟｠ */
+/* .maehuku 前副 ((à; …の)) ｟｠ */
+/* 語のジャンル */
+/* .gosou 位相 ((古)) など 印刷は〘〙 */
+/* .bunya 分野 〔植物〕など 印刷は〚〛 */
+.gentei2,
+.gokei,
+.maehuku,
+.gosou,
+.bunya {
+  margin: 0 0.1em;
+  font-size: 90%;
+  color: rgba(0,0,0,0.5);
+}
+.bunya {
+  font-family: var(--sans-serif-font),sans-serif;
+}
+/* ルビ */
+.rubi {
+  margin: 0 0.2em;
+  font-size: 60%;
+}
+
+/* ---------------
+  リンク・アンカー
+--------------- */
+
+/* tr.key > id > a[name="012"] */
+.key {
+  display: none;
+}
+/* 参照 別の語や図版などへのリンクのwrapper 「⇒〜〜」 */
+.sansyo2 {
+  margin: 0.1em 0.2em;
+}
+.sansyo2 > a[href]{
+  font-family: var(--serif-bold),serif;
+  font-weight: bold;
+}
+/* リンク */
+.jump {
+  /* 	color:Blue; */
+  /*	margin-top:2px; */
+  /*	margin-bottom:2px; */
+  /*	cursor:pointer; */
+}
+/* open VerbTable(verb_id) */
+input {
+  /*	margin-left:10px; */
+  /*	cursor:pointer; */
+}
+/* .gosi */
+/* .hatuon 内で一時的に外字フォントを無効にする */
+/* 「,」「'」など */
+.gosi {
+}
+
+/* ---------------
+  前付
+--------------- */
+
+[id=_FrontMatter] {
+  text-align: center;
+}
+[id=_FrontMatter] .syomei {
+  margin: 3em 0;
+  font-family: var(--serif-bold),serif;
+  font-weight: bold;
+  font-size: 120%;
+}
+[id^=_FrontMatter-] table,
+[id^=_FrontMatter-] tr {
+  width: unset;
+}
+[id^=_FrontMatter-] td {
+  display: revert;
+  padding-right: 1em;
+}
+[id=_FrontMatter-zuhanList] td[colspan="2"],
+[id=_FrontMatter-appendixList] td[colspan="3"] {
+  font-family: var(--serif-bold),serif;
+  font-weight: bold;
+}
+
+[id=_FrontMatter-appendixList] td:has(+ td + td) {
+  text-align: center;
+}
+[id=_FrontMatter-appendixList] .nobre {
+  font-size: 90%;
+  color: rgba(0,0,0,0.5);
+}
+
+/* ---------------
+  付録・図版
+--------------- */
+
+[id^=_Appendix] img,
+[id^=_Zuhan] img {
+  width: 100%;
+}
+[id^=_Appendix] img + img,
+[id^=_Zuhan] img + img {
+  margin-top: 1em;
+}
+
+/* ---------------
+  活用表
+--------------- */
+
+[id^=_Conju-] table,
+[id^=_Conju-] tr {
+  width: unset;
+  line-height: 1.2;
+}
+[id^=_Conju-] td {
+  display: revert;
+  padding-right: 1em;
+}
+[id^=_Conju-] .title_bar {
+  line-height: 1.8;
+  vertical-align: bottom;
+  font-family: var(--sans-serif-font),sans-serif;
+  font-size: 90%;
+  color: rgba(0,0,0,0.5);
+}

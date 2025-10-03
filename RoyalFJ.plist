@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>Japanese</string>
+	<key>CFBundleDisplayName</key>
+	<string>ロワイヤル仏和中辞典</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.obunsha.dictionary.royalfj</string>
+	<key>CFBundleName</key>
+	<string>仏和辞典</string>
+	<key>CFBundleShortVersionString</key>
+	<string>2</string>
+	<key>DCSDictionaryCopyright</key>
+	<string>ロワイヤル仏和中辞典 第2版 © 2010 Obunsha</string>
+	<key>DCSDictionaryManufacturerName</key>
+	<string>Obunsha</string>
+	<key>DCSDictionaryFrontMatterReferenceID</key>
+	<string>_FrontMatter</string>
+</dict>
+</plist>
