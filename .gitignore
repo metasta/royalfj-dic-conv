@@ -1,0 +1,11 @@
+env.make
+RoyalFJ.xml
+correctedItems/
+entries/
+frontMatter/
+indexes/
+main/
+objects/
+OtherResources/
+verbTable/
+scripts/__pycache__/

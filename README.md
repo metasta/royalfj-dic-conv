@@ -16,43 +16,20 @@ https://developer.apple.com/download/all/?q=Xcode
 
 ※Apple Developer アカウント（無料）が必要
 
-`Utilities/Dictionary Development Kit` をローカルにコピーし、以後このフォルダ内で作業する。
+`Utilities/Dictionary Development Kit/bin` を適当な場所に配置する。
 
-### 2. ツールをダウンロードして配置
+### 2. ツールをダウンロード
 ``` sh
 git clone https://github.com/metasta/royalfj-dic-conv.git
 ```
 
-`Dictionary Development Kit/bin` と同じ階層に `royalfj-dic-conv` フォルダを配置する。
-```
-Dictionary Development Kit/
-└── bin/
-└── documents/
-└── project_templates/
-└── royalfj-dic-conv/
-    └── Makefile
-    └── RoyalFJ.plist
-    └── RoyalFJ.css
-    └── scripts/
-└── samples/
-```
-
-### 3. Makefile の編集
+### 3. パスの指定
 CD-ROMをマウントし、CD-ROMデータにアクセスできるパスを確認する。
 
-`Makefile` を開き、CD-ROMデータ内の `Royal` フォルダのパスを `ROYALFJ_ROYAL_DIR` に指定する。
+`env.make` を開き、`ROYALFJ_ROYAL_DIR` と `BUILD_TOOL_BIN` の2つのパスを指定する。
 
-```Makefile
-# -------------------------
-# 使い方 + 設定項目
-# -------------------------
-# 
-# 1. パスを設定する
-# 『ロワイヤル仏和中辞典 第2版 CD-ROM版』の内部にある「Royal」ディレクトリを指定
-ROYALFJ_ROYAL_DIR := /Volumes/Royal_FJ/Royal
-#
-...
-```
+`ROYALFJ_ROYAL_DIR`: CDROM内部の `Royal/` ディレクトリのパス  
+`BUILD_TOOL_BIN`: Dictionary Development Kit の `bin/` ディレクトリのパス
 
 ### 4. 変換実行
 ```sh
@@ -60,8 +37,8 @@ make install
 ```
 を実行すると、辞書データが変換され、インストールされる。
 
-※`make install` により変換された辞書データは `~/Library/Dictionaries/RoyalFJ.dictionary` に配置される。  
-アンインストールの際はこの `RoyalFJ.dictionary` を削除する。
+※`make install` により変換された辞書データは `~/Library/Dictionaries/RoyalFJ.dictionary/` に配置される。  
+辞書をアンインストールする際はこの `RoyalFJ.dictionary/` を削除する。
 
 ### 5. 起動
 「辞書.app」を起動し、「辞書 > 設定...（command+,）」から「ロワイヤル仏和中辞典」を追加。

@@ -1,30 +1,17 @@
-# -------------------------
-# 使い方 + 設定項目
-# -------------------------
-# 
-# 1. パスを設定する
-# 『ロワイヤル仏和中辞典 第2版 CD-ROM版』の内部にある「Royal」ディレクトリを指定
-ROYALFJ_ROYAL_DIR := /Volumes/Royal_FJ/Royal
-#
-# 2. `make install`
-#
+include env.make
 
 # -------------------------
 # 変数
 # -------------------------
-
-# このMakefile が存在するディレクトリ
-MAKEFILE_DIR := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
-
-# Dictionary Develepment Kit のパス
-BUILD_TOOL_DIR := $(shell dirname $(MAKEFILE_DIR))
-BUILD_TOOL_BIN := $(BUILD_TOOL_DIR)/bin
 
 # 辞書の素材
 DICT_NAME  := RoyalFJ
 DICT_XML   := RoyalFJ.xml
 DICT_CSS   := RoyalFJ.css
 DICT_PLIST := RoyalFJ.plist
+
+# このMakefile が存在するディレクトリ
+MAKEFILE_DIR := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
 # build_dict.sh により作成された辞書データの一時的な置場
 OBJ := objects
