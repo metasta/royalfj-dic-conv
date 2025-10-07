@@ -64,15 +64,18 @@ jump3 = re.compile(r"openVerbTable\('([^']*)'\)")
 # -------------------------
 
 def _translate_texts(elem, rules):
-    for node in elem.iter():
-        cls = node.get("class", "")
-        if "gosi" in cls.split():
-            pass # span.gosi の text はスキップ
-        else:
-            if node.text:
-                node.text = node.text.translate(rules)
-        if node.tail:
-            node.tail = node.tail.translate(rules)
+    if elem.text:
+        elem.text = elem.text.translate(rules)
+    for c in elem.getchildren():
+        # .gosi の場合 text は置換せず tail だけを置換
+        if "gosi" in c.get("class","").split():
+            if c.tail:
+                c.tail = c.tail.translate(rules)
+        else: # それ以外は text も tail も置換
+            if c.text:
+                c.text = c.text.translate(rules)
+            if c.tail:
+                c.tail = c.tail.translate(rules)
 
 def replace_brackets(element):
     cls = element.get("class", "")
