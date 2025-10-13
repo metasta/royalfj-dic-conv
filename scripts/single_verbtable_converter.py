@@ -6,6 +6,7 @@
 
 from lxml import etree, html
 import re
+from common_functions import replace_apostrophe
 
 NSMAP = {"d": "http://www.apple.com/DTDs/DictionaryService-1.0.rng"}
 
@@ -38,6 +39,9 @@ def convert_verbtable(htm_path):
     # --- body 直下の br → 削除 ---
     for br in body.findall("br"):
         body.remove(br)
+
+    # アポストロフィを置換
+    replace_apostrophe(body)
 
     # --- <d:entry> 構築 ---
     entry = etree.Element(f"{{{NSMAP['d']}}}entry",

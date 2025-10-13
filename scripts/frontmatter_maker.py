@@ -8,7 +8,7 @@ from lxml import etree, html
 import re
 import sys
 from pathlib import Path
-
+from common_functions import replace_apostrophe
 
 NSMAP = {"d": "http://www.apple.com/DTDs/DictionaryService-1.0.rng"}
 
@@ -51,6 +51,8 @@ def convert_list_htm(folder_name, input_dir, output_dir):
     for a in body.xpath(".//a[@href]"):
         a.attrib["href"] = f"x-dictionary:r:_{folder_name.capitalize()}-" + a.attrib["href"].replace(".pdf","")
     title_dict = {"zuhan":"図版一覧", "appendix":"付録一覧",}
+    # アポストロフィを置換
+    replace_apostrophe(body)
     # d:entry 構築
     entry = etree.Element(f"{{{NSMAP['d']}}}entry",
                           attrib={"id": f"_FrontMatter-{folder_name}List",

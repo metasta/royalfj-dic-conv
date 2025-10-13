@@ -6,6 +6,7 @@
 
 from lxml import etree, html
 import re
+from common_functions import replace_apostrophe
 
 NSMAP = {"d": "http://www.apple.com/DTDs/DictionaryService-1.0.rng"}
 
@@ -280,6 +281,9 @@ def convert_item(htm_path):
 
     # 括弧を置換
     replace_brackets(body)
+
+    # アポストロフィを置換
+    replace_apostrophe(body)
 
     # --- <d:entry> 構築 ---
     entry = etree.Element(f"{{{NSMAP['d']}}}entry",
