@@ -6,7 +6,7 @@ macOSの 辞書.app で『ロワイヤル仏和中辞典』を使う
 
 ## 準備物
 - 『ロワイヤル仏和中辞典 第2版』付録CD-ROM（「Windows版 Ver 1.01」で動作確認）
-- `uv`（Rust 製の python マネージャ https://docs.astral.sh/uv/ ）
+- uv（Rust 製の python マネージャ https://docs.astral.sh/uv/ ）
 
 ## 変換手順
 ### 1. Additional Tools for Xcode 最新版を入手
