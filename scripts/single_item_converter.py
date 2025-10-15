@@ -233,6 +233,7 @@ def convert_item(htm_path):
         # span onclick="openNewWin(path.pdf,'ZUHAN'|'APPENDIX')"
         elif m2 is not None:
             refid, orig_type = m2.groups()
+            refid = refid.replace("../../../appendix/enseignement.pdf","_Zuhan-enseignement")
             refid = refid.replace("../../../zuhan/","_Zuhan-")
             refid = refid.replace("../../../appendix/","_Appendix-")
             refid = refid.replace(".pdf","")
