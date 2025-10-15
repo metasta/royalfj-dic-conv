@@ -40,9 +40,6 @@ def convert_all(mode, input_root, output_root):
     else: # midasi, conju
         files = all_files
 
-    total = len(files)
-    print(f"Found {total} target .htm files in {input_root}", file=sys.stderr)
-
     # --- 変換処理 ---
     for htm_file in tqdm(files, desc=f"Converting ({mode})", unit="file", dynamic_ncols=True):
         if mode == "item":
