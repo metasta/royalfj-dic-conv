@@ -9,27 +9,26 @@ macOSの 辞書.app で『ロワイヤル仏和中辞典』を使う
 - uv（Rust 製の python マネージャ https://docs.astral.sh/uv/ ）
 
 ## 変換手順
-### 1. Additional Tools for Xcode 最新版を入手
 
-Downloads - Apple Developer  
-https://developer.apple.com/download/all/?q=Xcode
-
-※Apple Developer アカウント（無料）が必要
-
-`Utilities/Dictionary Development Kit/bin` を適当な場所に配置する。
-
-### 2. ツールをダウンロード
+### 1. ダウンロード
 ``` sh
 git clone https://github.com/metasta/royalfj-dic-conv.git
 ```
 
+### 2. Additional Tools for Xcode を入手
+
+Downloads - Apple Developer  
+https://developer.apple.com/download/all/?q=Additional%20Tools%20for%20Xcode
+
+※ Apple Developer アカウント（無料）が必要
+
+`Utilities/Dictionary Development Kit/` 下にある `bin/` フォルダを、  
+**先ほど作成した `royalfj-dic-conv` フォルダの直下にコピー**する。
+
 ### 3. パスの指定
-CD-ROMをマウントし、CD-ROMデータにアクセスできるパスを確認する。
+CD-ROMをマウントする。
 
-`env.make` を開き、`ROYALFJ_ROYAL_DIR` と `BUILD_TOOL_BIN` の2つのパスを指定する。
-
-`ROYALFJ_ROYAL_DIR`: CDROM内部の `Royal/` ディレクトリのパス  
-`BUILD_TOOL_BIN`: Dictionary Development Kit の `bin/` ディレクトリのパス
+`env.make` を開き、`ROYALFJ_ROYAL_DIR` にCD-ROM内部の `Royal/` フォルダのパスを指定する。
 
 ### 4. 変換実行
 ```sh
@@ -37,8 +36,10 @@ make install
 ```
 を実行すると、辞書データが変換され、インストールされる。
 
-※`make install` により変換された辞書データは `~/Library/Dictionaries/RoyalFJ.dictionary/` に配置される。  
-辞書をアンインストールする際はこの `RoyalFJ.dictionary/` を削除する。
+※ 辞書をビルドする過程で、辞書内リンクの処理を修正するパッチが Dictionary Development Kit に適用される。
+
+※ `make install` により変換された辞書データは `~/Library/Dictionaries/RoyalFJ.dictionary/` に配置される。  
+辞書をアンインストールする際はこの `RoyalFJ.dictionary/` を手動で削除する。
 
 ### 5. 起動
 「辞書.app」を起動し、「辞書 > 設定...（command+,）」から「ロワイヤル仏和中辞典」を追加。

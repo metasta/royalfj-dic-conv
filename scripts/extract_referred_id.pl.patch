@@ -1,0 +1,9 @@
+@@ -94,6 +94,8 @@ sub process_a_referred_url
+ 		
+ 		if ( $referred_id ne "" )
+ 		{
++			# Remove anchor (#...) part.
++			$referred_id =~ s/#.*?(?=(:|$))//;
+ 			# Remove dict_bundle_id part.
+ 			if ( $referred_id =~ /^([^:]+):(.*?)$/ )
+ 			{

@@ -13,6 +13,9 @@ DICT_PLIST := RoyalFJ.plist
 # このMakefile が存在するディレクトリ
 MAKEFILE_DIR := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
+# build_dict.sh 含むビルドツールの場所
+BUILD_TOOL_BIN := bin
+
 # build_dict.sh により作成された辞書データの一時的な置場
 OBJ := objects
 DICT_DEV_OBJ_DIR := $(MAKEFILE_DIR)/$(OBJ)
@@ -28,20 +31,8 @@ INSTALL_DIR := ${HOME}/Library/Dictionaries
 .DEFAULT_GOAL = help
 
 help: ## helpを表示する
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sed 's,^Makefile:,,g' | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
 .PHONY: help
-
-check_royal: ## CD-ROMデータのパスを正しく指定できているか確認する
-	@if [ ! -e "$(ROYALFJ_ROYAL_DIR)/Contents/_ht.htm" ]; then\
-	    echo "ERR: The CD-ROM not found. ROYALFJ_ROYAL_DIR seems to be incorrect" >&2; exit 1;\
-	fi
-.PHONY: check_royal
-
-check_buildtool: ## MakefileとDictionary Development Kitとの位置関係を確認する
-	@if [ ! -e "$(BUILD_TOOL_BIN)/build_dict.sh" ]; then\
-	    echo "ERR: $(BUILD_TOOL_BIN)/build_dict.sh not found" >&2; exit 1;\
-	fi
-.PHONY: check_buildtool
 
 # -------------------------
 # CD-ROMデータの変換
@@ -105,8 +96,15 @@ $(DICT_XML): main/main.xml verbTable/.dummy frontMatter/.dummy frontMatter/appen
 # 辞書のビルドとインストール
 # -------------------------
 
-all: check_buildtool $(OBJ) ## ビルドを実行する
-$(OBJ): $(DICT_XML) $(DICT_CSS) $(DICT_PLIST)
+# patch -b .orig を作成 -N 差分適用済であれば無視
+$(BUILD_TOOL_BIN)/extract_referred_id.pl.orig:
+	patch -b -N ./bin/extract_referred_id.pl < scripts/extract_referred_id.pl.patch
+
+patch: $(BUILD_TOOL_BIN)/extract_referred_id.pl.orig ## Dictionary Development Kit にパッチを当てる
+.PHONY: patch
+
+all: $(OBJ) ## ビルドを実行する
+$(OBJ): $(DICT_XML) $(DICT_CSS) $(DICT_PLIST) $(BUILD_TOOL_BIN)/extract_referred_id.pl.orig
 	"$(BUILD_TOOL_BIN)/build_dict.sh" "$(DICT_NAME)" "$(DICT_XML)" "$(DICT_CSS)" "$(DICT_PLIST)"
 .PHONY: all
 

@@ -1,5 +1,6 @@
 env.make
 RoyalFJ.xml
+bin/
 correctedItems/
 entries/
 frontMatter/
