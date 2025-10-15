@@ -14,6 +14,7 @@ macOSの 辞書.app で『ロワイヤル仏和中辞典』を使う
 ``` sh
 git clone https://github.com/metasta/royalfj-dic-conv.git
 ```
+作業フォルダ `royalfj-dic-conv` が作られる。
 
 ### 2. Additional Tools for Xcode を入手
 
@@ -23,7 +24,7 @@ https://developer.apple.com/download/all/?q=Additional%20Tools%20for%20Xcode
 ※ Apple Developer アカウント（無料）が必要
 
 `Utilities/Dictionary Development Kit/` 下にある `bin/` フォルダを、  
-**先ほど作成した `royalfj-dic-conv` フォルダの直下にコピー**する。
+**`royalfj-dic-conv` フォルダの直下に**コピーする。
 
 ### 3. パスの指定
 CD-ROMをマウントする。
