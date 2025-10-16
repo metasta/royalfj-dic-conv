@@ -244,20 +244,13 @@ def convert_item(htm_path):
             href = f"x-dictionary:r:_Conju-{conju_id}"
         else:
             continue
-        # a 要素を作成し、元の要素と置換
-        a_tag = etree.Element("a", href=href)
-        if m3 is not None:
-            a_tag.text = "活用表"
-        else:
-            # 子ノード移動
-            for child in list(el):
-                a_tag.append(child)
-            if el.text:
-                if a_tag.text:
-                    a_tag.text += el.text
-                else:
-                    a_tag.text = el.text
-        el.getparent().replace(el, a_tag)
+        # a 要素に変換
+        el.tag = "a"
+        el.attrib["href"] = href
+        del el.attrib["onclick"]
+        if "type" in el.attrib:
+            del el.attrib["type"]
+            el.text = "活用表"
 
     # --- 不要な要素を削除 ---
     # a href="#page_top" → 削除
