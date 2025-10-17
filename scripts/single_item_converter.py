@@ -78,6 +78,21 @@ def _translate_texts(elem, rules):
             if c.tail:
                 c.tail = c.tail.translate(rules)
 
+def convert_multi_digit_zen2han(text: str) -> str:
+    # 2桁以上の全角数字にマッチ
+    pattern = re.compile(r"[０-９]{2,}")
+    def _to_halfwidth(m):
+        return m.group().translate(str.maketrans("０１２３４５６７８９", "0123456789"))
+    return pattern.sub(_to_halfwidth, text)
+
+def normalize_digits(element):
+    if element.text:
+        element.text = convert_multi_digit_zen2han(element.text)
+    if element.tail:
+        element.tail = convert_multi_digit_zen2han(element.tail)
+    for child in element:
+        normalize_digits(child)
+
 def replace_brackets(element):
     cls = element.get("class", "")
     # gosou の場合
@@ -272,6 +287,9 @@ def convert_item(htm_path):
     # 空の tr 要素 → 削除
     for tr in body.xpath(".//tr[count(@*)=0 and not(node())]"):
         tr.getparent().remove(tr)
+
+    # 2桁以上の連続する全角数字を半角数字に置換
+    normalize_digits(body)
 
     # 括弧を置換
     replace_brackets(body)
