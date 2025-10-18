@@ -182,6 +182,20 @@ def correct_simple_items(src_dir, dst_dir):
     correct_item("V/V-00569.htm", [("(qn.))", "(qn.) )")])
     correct_item("V/V-01545.htm", [(" qn.)))", " qn.) ))")])
 
+def correct_r00345(src_dir, dst_dir):
+    """R-00345.htm の .kanren 前の .tyuki の位置を修正する"""
+    src_file = Path(src_dir) / "R" / "R-00345.htm"
+    text = src_file.read_text(encoding="shift_jis")
+    text = re.sub(
+        r'<span class="tyuki">\(<span class="aster"><td>\s*<table>(.*?)\)</span>',
+        r'<td><table><tr><td><span class="tyuki">(<span class="aster">\1)</span></td></tr>',
+        text,
+        flags=re.DOTALL
+    )
+    dst = Path(dst_dir) / "R" / "R-00345.htm"
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    dst.write_text(text, encoding="shift_jis")
+
 def correct_split_r02616(src_dir, dst_dir):
     """R-02616.htm から R-02615.htm と R-02616.htm を生成する"""
     src_file = Path(src_dir) / "R" / "R-02616.htm"
@@ -233,4 +247,5 @@ if __name__ == "__main__":
     dst_dir = Path(sys.argv[2]).expanduser()
 
     correct_simple_items(src_dir, dst_dir)
+    correct_r00345(src_dir, dst_dir)
     correct_split_r02616(src_dir, dst_dir)
