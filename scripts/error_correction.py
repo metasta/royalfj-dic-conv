@@ -182,6 +182,36 @@ def correct_simple_items(src_dir, dst_dir):
     correct_item("V/V-00569.htm", [("(qn.))", "(qn.) )")])
     correct_item("V/V-01545.htm", [(" qn.)))", " qn.) ))")])
 
+    # --- Êêtre → Être など ---
+    correct_item("E/E-00201.htm", [("&Eacute;&eacute;", "&Eacute;")]) # Échec
+    correct_item("E/E-00204.htm", [("&Eacute;&eacute;", "&Eacute;")]) # Échelle
+    correct_item("E/E-00232.htm", [("&Eacute;&eacute;", "&Eacute;")]) # Échiquier
+    correct_item("E/E-00234.htm", [("&Eacute;&eacute;", "&Eacute;")]) # Écho
+    correct_item("E/E-00310.htm", [("&Eacute;&eacute;", "&Eacute;")]) # École
+    correct_item("E/E-00359.htm", [("&Eacute;&eacute;", "&Eacute;")]) # Écossais
+    correct_item("E/E-00501.htm", [("&Eacute;&eacute;", "&Eacute;")]) # Édit
+    correct_item("E/E-00517.htm", [("&Eacute;&eacute;", "&Eacute;")]) # Éducation
+    correct_item("E/E-00648.htm", [("&Eacute;&eacute;", "&Eacute;")]) # Égalité
+    correct_item("E/E-00667.htm", [("&Eacute;&eacute;", "&Eacute;")]) # Église
+    correct_item("E/E-00776.htm", [("&Eacute;&eacute;", "&Eacute;")]) # Électeur
+    correct_item("E/E-01212.htm", [("&Eacute;&eacute;", "&Eacute;")]) # Éminence
+    correct_item("E/E-02484.htm", [("&Eacute;&eacute;", "&Eacute;")]) # Éphésien
+    correct_item("E/E-02671.htm", [("&Eacute;&eacute;", "&Eacute;")]) # Époque
+    correct_item("E/E-02694.htm", [("&Eacute;&eacute;", "&Eacute;")]) # Époux
+    correct_item("E/E-03255.htm", [("&Eacute;&eacute;", "&Eacute;")]) # Établissements
+    correct_item("E/E-03314.htm", [("&Eacute;&eacute;", "&Eacute;")]) # État
+    correct_item("E/E-03345.htm", [("&Eacute;&eacute;", "&Eacute;")]) # Éternel
+    correct_item("E/E-03440.htm", [("&Eacute;&eacute;", "&Eacute;")]) # Étoile
+    correct_item("E/E-03445.htm", [("&Eacute;&eacute;", "&Eacute;")]) # Étolienne
+    correct_item("E/E-03479.htm", [("&Eacute;&eacute;", "&Eacute;")]) # Étrangleur
+    correct_item("E/E-03482.htm", [("&Ecirc;&ecirc;", "&Ecirc;")]) # Être
+    correct_item("E/E-03513.htm", [("&Eacute;&eacute;", "&Eacute;")]) # Étudiant
+    correct_item("E/E-03664.htm", [("&Eacute;&eacute;", "&Eacute;")]) # Évangile
+    correct_item("E/E-03684.htm", [("&Eacute;&eacute;", "&Eacute;")]) # Évêché
+    correct_item("E/E-03701.htm", [("&Eacute;&eacute;", "&Eacute;")]) # Éventreur
+    correct_item("E/E-03714.htm", [("&Eacute;&eacute;", "&Eacute;")]) # Évidemment
+    correct_item("I/I-00217.htm", [("&Icirc;&icirc;", "&Icirc;")]) # Île
+
 def correct_r00345(src_dir, dst_dir):
     """R-00345.htm の .kanren 前の .tyuki の位置を修正する"""
     src_file = Path(src_dir) / "R" / "R-00345.htm"
