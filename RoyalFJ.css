@@ -225,6 +225,7 @@ tr:has(.seiku) + [id^=sub_yourei] table {
   margin-right: 0.4em;
   font-family: var(--serif-bold),serif;
   font-weight: bold;
+  font-style: italic;
   font-size: 110%;
 }
 td:has(> .seiku) {
@@ -290,15 +291,25 @@ td.tyuki tr:first-child .kaigyo::before {
 }
 /* 引用 */
 [id^=sub_inyou] .daimei::before {
-  content: "引用";
+  content: "Citations";
 }
 .inyou {
   margin-right: 0.4em;
+  font-family: var(--serif-bold),serif;
+  font-weight: bold;
+  font-style: italic;
 }
 .sakusya {
   margin-left: 0.8em;
   font-size: 90%;
 }
+.sakusya::before {
+  content: "(";
+}
+.sakusya::after {
+  content: ")";
+}
+
 .inyou_yaku {
   display: inline-block;
   text-indent: 0;
