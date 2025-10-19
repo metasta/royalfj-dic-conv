@@ -405,9 +405,6 @@ span.tyuki {
   font-size: 90%;
   color: rgba(0,0,0,0.5);
 }
-.bunya {
-  font-family: var(--sans-serif-font),sans-serif;
-}
 /* ルビ */
 .rubi {
   margin: 0 0.2em;
