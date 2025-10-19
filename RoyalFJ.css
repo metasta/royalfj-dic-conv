@@ -48,7 +48,7 @@ a[href] {
 /* 見出し語 */
 .midasi {
   margin-right: 0.5em;
-  font-family: var(--serif-bold),serif;
+  font-family: var(--sans-serif-bold),sans-serif; 
   font-weight: bold;
   font-size: 150%;
 }
@@ -87,8 +87,7 @@ sup {
 /* 巻末の動詞活用表に対応する番号 */
 .dousi_num {
   margin: 0 0.1em;
-  font-family: var(--serif-bold),serif;
-  font-weight: bold;
+  font-family: var(--sans-serif-font),sans-serif;
   font-size: 90%;
   color: brown;
 }
@@ -101,7 +100,7 @@ sup {
 /* 文中のサブ見出し -se manger */
 .midasi_sub {
   margin-right: 0.5em;
-  font-family: var(--serif-bold),serif;
+  font-family: var(--sans-serif-bold),sans-serif;
   font-weight: bold;
   font-size: 120%;
 }
@@ -116,7 +115,7 @@ td:has(> .midasi_sub) {
   margin-right: 0.15em;
   font-weight: normal;
   font-size: 120%;
-  color: Brown;
+  color: brown;
 }
 
 /* ---------------
@@ -147,21 +146,21 @@ td:has(> .midasi_sub) {
   line-height: 1.25em;
   text-align: center;
   color: white;
-  border-radius: 2px;
 }
 .branch4,
 .branch5 {
   margin-left: 1em;
-/*   font-size: 110%; */
 }
 .branch2 {
+  border-radius: 2px;
   background-color: brown;
 }
 .branch3 {
+  border-radius: 100%;
   background-color: rgba(0,0,0,0.5);
 }
 .branch4 {
-  color: Brown;
+  color: brown;
 }
 .branch5 {
 }
@@ -178,12 +177,12 @@ td:has(.branch4) {
 
 /* 上位区分見出し 例：「起源・原因・手段・様態」*/
 .gentei1 {
-  font-family: var(--serif-bold),serif;
+  font-family: var(--sans-serif-bold),sans-serif;
   font-weight: bold;
-  color: Brown;
 }
 /* 訳語 印刷は丸ゴシック */
 .yakugo {
+  font-family: var(--sans-serif-font),sans-serif;
   display: inline-block;
   text-indent: 0;
   margin: 0 0.2em;
@@ -195,8 +194,6 @@ td:has(.branch4) {
 .branch3 ~ .yakugo,
 .branch4 ~ .yakugo,
 .branch5 ~ .yakugo {
-  font-family: var(--serif-bold),serif;
-  font-weight: bold;
 }
 /* 用例 */
 .yourei {
@@ -223,7 +220,7 @@ tr:has(.seiku) + [id^=sub_yourei] table {
 /* 成句 「◆〜」 */
 .seiku {
   margin-right: 0.4em;
-  font-family: var(--serif-bold),serif;
+  font-family: var(--sans-serif-bold),sans-serif;
   font-weight: bold;
   font-style: italic;
   font-size: 110%;
@@ -233,6 +230,7 @@ td:has(> .seiku) {
   text-indent: -0.8em;
 }
 .seiku_yaku {
+  font-family: var(--sans-serif-font),sans-serif;
   display: inline-block;
   text-indent: 0;
   margin: 0 0.15em;
@@ -276,9 +274,18 @@ td.tyuki tr:first-child .kaigyo::before {
   font-size: 80%;
   color: rgba(0,0,0,0.5);
 }
+
 /* 用語 */
 [id^=sub_yougo] .daimei::before {
+  border: 1px solid brown;
+  color: brown;
+  font-family: var(--serif-font),serif;
+  font-weight: normal;
   content: "用語";
+}
+[id^=sub_yougo] .daimei {
+  font-family: var(--sans-serif-bold),sans-serif;
+  font-weight: bold;
 }
 .yougo {
   margin-right: 0.4em;
@@ -291,7 +298,15 @@ td.tyuki tr:first-child .kaigyo::before {
 }
 /* 引用 */
 [id^=sub_inyou] .daimei::before {
+  border: 1px solid brown;
+  color: brown;
+  font-family: var(--serif-bold),serif;
+  font-weight: bold;
   content: "Citations";
+}
+[id^=sub_inyou] .daimei {
+  font-family: var(--sans-serif-bold),sans-serif;
+  font-weight: bold;
 }
 .inyou {
   margin-right: 0.4em;
@@ -309,19 +324,24 @@ td.tyuki tr:first-child .kaigyo::before {
 .sakusya::after {
   content: ")";
 }
-
 .inyou_yaku {
   display: inline-block;
   text-indent: 0;
+  padding-left: 1em;
   margin: 0 0.15em;
   font-size: 90%;
 }
 /* 関連 */
 [id^=sub_kanren] table::before {
+  border: 1px solid brown;
+  color: brown;
+  font-family: var(--serif-font),serif;
+  font-weight: normal;
   content: "関連";
 }
 .kanren {
   margin-right: 0.4em;
+  font-family: var(--sans-serif-font),sans-serif;
 }
 .kanren_yaku {
   display: inline-block;
@@ -333,9 +353,26 @@ td.tyuki tr:first-child .kaigyo::before {
 [id^=sub_info] {
   font-size: 90%;
 }
+[id^=sub_info] .daimei {
+  font-family: var(--sans-serif-font),sans-serif;
+  font-weight: normal;
+}
 [id^=sub_info] .daimei::before {
-  content: "INFO";
+  border: 1px solid brown;
+  color: brown;
+  font-family: var(--sans-serif-bold),sans-serif;
+  font-weight: bold;
+  content: "Info";
   margin-right: 0.5em;
+}
+[id^=sub_info] table td:has(.kaigyo) {
+  padding-left: 1em;
+  text-indent: -1em;
+}
+[id^=sub_info] .setumei {
+  display: inline-block;
+  line-height: 1.5;
+  text-indent: 0;
 }
 /* 注意 */
 /* td.tyuki ブロックタイプの注意 */
@@ -347,6 +384,10 @@ td.tyuki {
   color: rgba(0,0,0,0.5);
 }
 td.tyuki tr:first-child .kaigyo::before {
+  border: 1px solid brown;
+  color: brown;
+  font-family: var(--serif-font),serif;
+  font-weight: normal;
   content: "注意";
 }
 td.tyuki tr:first-child td {
@@ -391,7 +432,7 @@ span.tyuki {
   font-family: var(--sans-serif-bold),sans-serif;
   font-weight: bold;
   font-size: 80%;
-  color: Brown;
+  color: brown;
 }
 /* (＜ ) 語源 */
 .gogen {
@@ -412,7 +453,7 @@ span.tyuki {
 .gosou,
 .bunya {
   margin: 0 0.1em;
-  font-size: 90%;
+  font-size: 80%;
   color: rgba(0,0,0,0.5);
 }
 /* ルビ */
