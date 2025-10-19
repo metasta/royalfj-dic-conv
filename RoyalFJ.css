@@ -78,12 +78,6 @@ sup {
 .midasi_sub ~ .hatuon {
   font-size: 120%;
 }
-/* 語源 (＜lat.) */
-.gogen {
-  margin: 0 0.15em;
-  font-size: 90%;
-  color: rgba(0,0,0,0.5);
-}
 /* 発生 (←abdominal) */
 .hassei {
   margin: 0 0.15em;
@@ -354,23 +348,22 @@ td.tyuki tr:first-child td {
   括弧類
 --------------- */
 
-/* 補助 省略可能部分 (時計の)アンクル */
+/* ( ) 省略可能部分；訳語の前につく動詞の目的語，形容詞の被修飾語など「(時計の)アンクル」 */
 .hojo {
   margin: 0 0.15em;
-  font-size: 90%;
+  font-size: 80%;
 }
-/* 同意語 双解語句 (＝petit doigt) */
+/* (= ) 同意語・双解語句「(＝petit doigt)」 */
 .doui {
   margin: 0 0.3em;
-  font-family: var(--serif-bold),serif;
-  font-weight: bold;
+  font-size: 80%;
 }
-/* 説明 ［中が空洞で指状のもの］ */
+/* ［ ］ 交換可能部分；訳語の補足的・敷衍的説明文「［中が空洞で指状のもの］」 */
 .setumei {
   margin: 0 0.15em;
   font-size: 80%;
 }
-/* 注意 */
+/* (＊ ) 簡単な用法上の注意，語句の語源的由来など */
 /* span.tyuki (＊〜〜) インラインタイプの注意 */
 /* td.tyuki ブロックタイプの注意 上で記述 */
 span.tyuki {
@@ -389,13 +382,19 @@ span.tyuki {
   font-size: 80%;
   color: Brown;
 }
-/* 構文説明など */
-/* .gentei2 限定 ((中性代名詞leとともに)) 印刷は｟｠ */
-/* .gokei   語形 ((pl.で)) ｟｠ */
-/* .maehuku 前副 ((à; …の)) ｟｠ */
-/* 語のジャンル */
-/* .gosou 位相 ((古)) など 印刷は〘〙 */
-/* .bunya 分野 〔植物〕など 印刷は〚〛 */
+/* (＜ ) 語源 */
+.gogen {
+  margin: 0 0.15em;
+  font-size: 80%;
+  color: rgba(0,0,0,0.5);
+}
+/* (( )) 構文説明や見出し語と密接に結びつく前置詞など；前置詞などで，各語義の概念規定 */
+/* .gentei2 限定 「((中性代名詞leとともに))」 */
+/* .gokei   語形 「((pl.で))」 */
+/* .maehuku 前副 ((à; …の)) */
+
+/* ｟ ｠ 古語，俗語，方言などの用法 .gosou 「｟古｠」 CD-ROM版では「(( ))」と表記 */
+/* 〘 〙 専門百科記号 .bunya 「〘植物〙」 CD-ROM版では「〔 〕」と表記 */
 .gentei2,
 .gokei,
 .maehuku,

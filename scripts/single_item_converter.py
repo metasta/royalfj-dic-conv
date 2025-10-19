@@ -94,20 +94,17 @@ def normalize_digits(element):
         normalize_digits(child)
 
 def replace_brackets(element):
-    cls = element.get("class", "")
-    # gosou の場合
-    if "gosou" in cls.split():
-        rules = [(r"\(\(", "〘"), (r"\)\)", "〙"),]
-    # bunya の場合
-    elif "bunya" in cls.split():
-        rules = [(r"〔", "〚"), (r"〕", "〛"),]
-    # それ以外
-    else:
-        rules = [(r"\(\(", "｟"), (r"\)\)", "｠"),
-                 (r"《", "«"), (r"》", "»"),]
+    # 〔 〕 → 〘 〙, 《 》 → « »
+    rules = [(r"〔", "〘"), (r"〕", "〙"),
+             (r"《", "«"), (r"》", "»"),]
     # text と tail に適用
     if element.text:
-        for pat, rep in rules:
+        # .gosou の (( )) → ｟ ｠
+        if "gosou" in element.get("class", "").split():
+            rules_text = rules + [(r"\(\(", "｟"), (r"\)\)", "｠"),]
+        else:
+            rules_text = rules
+        for pat, rep in rules_text:
             element.text = re.sub(pat, rep, element.text)
     if element.tail:
         for pat, rep in rules:
