@@ -40,9 +40,6 @@ def convert_verbtable(htm_path):
     for br in body.findall("br"):
         body.remove(br)
 
-    # アポストロフィを置換
-    replace_apostrophe(body)
-
     # --- <d:entry> 構築 ---
     entry = etree.Element(f"{{{NSMAP['d']}}}entry",
                           attrib={"id": entry_id,
@@ -67,6 +64,9 @@ def convert_verbtable(htm_path):
     # --- d:entry ---
     for child in list(body):
         entry.append(child)
+
+    # アポストロフィを置換
+    replace_apostrophe(entry)
 
     return entry
 
