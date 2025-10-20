@@ -210,9 +210,10 @@ sup {
 .branch5 {
   margin-left: 2.6em;
   border-radius: 100%;
-  border: 1px solid black;
+  border: 1px solid rgba(0,0,0,0.5);
   font-family: var(--sans-serif-font),sans-serif;
   font-size: 65%;
+  color: rgba(0,0,0,0.5);
 }
 td:has(.branch2),
 td:has(.branch3) {
