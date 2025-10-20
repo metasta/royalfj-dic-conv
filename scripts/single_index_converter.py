@@ -61,6 +61,7 @@ def convert_seiku(tr_list):
             continue
         entry_id, anchor_num = m.group(1), m.group(2)
         term = "".join(td.itertext()).strip()
+        term = term.replace("e＾tre", "être") # E-00273_4
         add_index_to_entry(id2entry, entry_id, value=term, anchor=anchor_num)
     return id2entry
 

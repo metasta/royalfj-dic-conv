@@ -212,6 +212,9 @@ def correct_simple_items(src_dir, dst_dir):
     correct_item("E/E-03714.htm", [("&Eacute;&eacute;", "&Eacute;")]) # Évidemment
     correct_item("I/I-00217.htm", [("&Icirc;&icirc;", "&Icirc;")]) # Île
 
+    # --- その他 ---
+    correct_item("E/E-00273.htm", [("e＾tre", "&ecirc;tre")]) # éclat
+
 def correct_r00345(src_dir, dst_dir):
     """R-00345.htm の .kanren 前の .tyuki の位置を修正する"""
     src_file = Path(src_dir) / "R" / "R-00345.htm"
