@@ -45,7 +45,7 @@ def convert_midasi(tr_list):
         a_elem = td.find("a")
         if a_elem is None: 
             continue
-        term = "".join(a_elem.itertext()).strip()
+        term = re.sub(r"[0-9]+","","".join(a_elem.itertext()).strip())
         add_index_to_entry(id2entry, entry_id, value=term)
     return id2entry
 
@@ -76,9 +76,9 @@ def convert_conju(tr_list):
             continue
         entry_id = m.group(1)
         a_elem = td.find("a")
-        value_text = "".join(a_elem.itertext()).strip() if a_elem is not None else None
+        value_text = re.sub(r"[0-9]+","","".join(a_elem.itertext()).strip()) if a_elem is not None else None
         span = td.find("span[@class='base_mida']")
-        title_text = "".join(span.itertext()).lstrip("→⇒").strip() if span is not None else None
+        title_text = re.sub(r"[0-9]+","","".join(span.itertext()).lstrip("→⇒").strip()) if span is not None else None
         add_index_to_entry(id2entry, entry_id, value=value_text, title=title_text)
     return id2entry
 
