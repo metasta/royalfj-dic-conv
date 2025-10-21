@@ -29,7 +29,7 @@ git clone https://github.com/metasta/royalfj-dic-conv.git
 ### 3. パスの指定
 CD-ROMをマウントする。
 
-`env.make` を開き、`ROYALFJ_ROYAL_DIR` にCD-ROM内部の `Royal/` フォルダのパスを指定する。
+[`env.make`](env.make) を開き、`ROYALFJ_ROYAL_DIR` にCD-ROM内部の `Royal/` フォルダのパスを指定する。
 
 ### 4. 変換実行
 ```sh
