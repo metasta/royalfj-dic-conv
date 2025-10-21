@@ -39,8 +39,8 @@ make install
 
 ※ ビルドの際、`bin` 内の一部ツールに[パッチ](scripts/extract_referred_id.pl.patch)を当てている。辞書内のリンクに関する処理を修正するため。
 
-※ `make install` により変換された辞書データは `~/Library/Dictionaries/RoyalFJ.dictionary/` に配置される。  
-辞書をアンインストールする際はこの `RoyalFJ.dictionary/` を手動で削除する。
+※ `make install` により変換された辞書データは `~/Library/Dictionaries/RoyalFJ.dictionary` に配置される。  
+辞書をアンインストールする際はこの `RoyalFJ.dictionary` を手動で削除する。
 
 ### 5. 起動
 「辞書.app」を起動し、「辞書 > 設定...（command+,）」から「ロワイヤル仏和中辞典」を追加。
