@@ -86,8 +86,7 @@ frontMatter: frontMatter/.dummy ## 辞書の前付を作成
 # -------------------------
 
 main/main.xml: indexes/.dummy entries/.dummy
-	uv run scripts/merge_index_entry.py indexes entries main.xml
-	mkdir -p main && /bin/mv main.xml main/
+	uv run scripts/merge_index_entry.py indexes entries main/main.xml
 
 $(DICT_XML): main/main.xml verbTable/.dummy frontMatter/.dummy frontMatter/appendix/.dummy frontMatter/zuhan/.dummy ## 見出し、項目本文、活用表を結合した XML データを作成
 	uv run scripts/merge_dictionaries.py main verbTable frontMatter | xmllint --format - > "$(DICT_XML)"

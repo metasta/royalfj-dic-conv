@@ -9,7 +9,7 @@ from lxml import etree
 from tqdm import tqdm
 from pathlib import Path
 
-def merge_index_entry(indexes_dir, entries_dir, output_file):
+def merge_index_entry(indexes_dir, entries_dir, output_path_str):
     NSMAP = {"d": "http://www.apple.com/DTDs/DictionaryService-1.0.rng"}
     root = etree.Element(f"{{{NSMAP['d']}}}dictionary", nsmap=NSMAP)
 
@@ -55,13 +55,15 @@ def merge_index_entry(indexes_dir, entries_dir, output_file):
     # 2. entry を後に処理
     process_dir(entries_dir)
 
-    etree.ElementTree(root).write(output_file, encoding="utf-8",
+    output_path = Path(output_path_str)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    etree.ElementTree(root).write(output_path, encoding="utf-8",
                                   pretty_print=True, xml_declaration=True)
 
 if __name__ == "__main__":
     import sys
     if len(sys.argv) != 4:
-        print("Usage: python merge_index_entry.py indexes_dir entries_dir output.xml", file=sys.stderr)
+        print("Usage: python merge_index_entry.py indexes_dir entries_dir output/output.xml", file=sys.stderr)
         sys.exit(1)
 
     merge_index_entry(sys.argv[1], sys.argv[2], sys.argv[3])
