@@ -14,6 +14,13 @@ NSMAP = {"d": "http://www.apple.com/DTDs/DictionaryService-1.0.rng"}
 # 共通補助関数
 # -------------------------
 
+def remove_numeric_sup(elem):
+    # elem の末尾の <sup>[0-9]+</sup> を削除
+    for sup in elem.xpath(".//sup"):
+        if sup.text and sup.text.strip().isdigit() and sup.tail is None:
+            sup.getparent().remove(sup)
+    return elem
+
 def add_index_to_entry(id2entry, entry_id, value=None, anchor=None, title=None):
     if entry_id in id2entry:
         entry_elem = id2entry[entry_id]
@@ -45,7 +52,8 @@ def convert_midasi(tr_list):
         a_elem = td.find("a")
         if a_elem is None: 
             continue
-        term = re.sub(r"[0-9]+","","".join(a_elem.itertext()).strip())
+        remove_numeric_sup(a_elem)
+        term = "".join(a_elem.itertext()).strip()
         add_index_to_entry(id2entry, entry_id, value=term)
     return id2entry
 
@@ -77,9 +85,11 @@ def convert_conju(tr_list):
             continue
         entry_id = m.group(1)
         a_elem = td.find("a")
-        value_text = re.sub(r"[0-9]+","","".join(a_elem.itertext()).strip()) if a_elem is not None else None
+        remove_numeric_sup(a_elem)
+        value_text = "".join(a_elem.itertext()).strip() if a_elem is not None else None
         span = td.find("span[@class='base_mida']")
-        title_text = re.sub(r"[0-9]+","","".join(span.itertext()).lstrip("→⇒").strip()) if span is not None else None
+        remove_numeric_sup(span)
+        title_text = "".join(span.itertext()).lstrip("→⇒").strip() if span is not None else None
         add_index_to_entry(id2entry, entry_id, value=value_text, title=title_text)
     return id2entry
 
