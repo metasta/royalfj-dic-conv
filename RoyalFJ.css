@@ -547,6 +547,12 @@ td.tyuki {
   margin-top: 1em;
 }
 
+@media (prefers-color-scheme: dark) {
+  img {
+    filter: invert(1) hue-rotate(180deg) contrast(0.75);
+  }
+}
+
 /* ---------------
   活用表
 --------------- */
