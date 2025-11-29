@@ -4,6 +4,9 @@ macOSの 辞書.app で『ロワイヤル仏和中辞典』を使う
 ## 概要
 『ロワイヤル仏和中辞典 第2版』（旺文社、2005）付属のCD-ROM版辞書を、macOSの標準辞書アプリで利用できる形式に変換する。
 
+<img width="400" alt="royalfj" src="https://github.com/user-attachments/assets/f9c8d876-a118-4b0c-a3bf-f7b29165adf1" />
+<img width="400" alt="preview" src="https://github.com/user-attachments/assets/4c16a067-25af-41b7-a49c-d615ab398110" />
+
 ## 準備物
 - 『ロワイヤル仏和中辞典 第2版』付録CD-ROM（「Windows版 Ver 1.01」で動作確認）
 - uv（Rust 製の python マネージャ https://docs.astral.sh/uv/ ）
